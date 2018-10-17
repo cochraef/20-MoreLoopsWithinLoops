@@ -53,16 +53,13 @@ def draw_upside_down_wall(rectangle, n, window):
     #     Some tests are already written for you (above).
     # ------------------------------------------------------------------
 
-    rectangle.attach_to(window)
-    window.render()
-
     rect_length = rectangle.get_upper_right_corner().x - rectangle.get_upper_left_corner().x
     rect_height = rectangle.get_upper_left_corner().y - rectangle.get_lower_left_corner().y
 
     for k in range(n + 1):
         for i in range(k):
             new_rectangle = rectangle.clone()
-            new_rectangle.move_by((rect_length // 2) * (k - 1) - (rect_length * i), rect_height * (k - 1))
+            new_rectangle.move_by((rect_length // 2) * k - (rect_length * i), rect_height * (k - 1))
             new_rectangle.attach_to(window)
 
     window.render()
